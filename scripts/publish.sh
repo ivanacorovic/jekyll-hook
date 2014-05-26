@@ -17,4 +17,4 @@ site="/usr/share/nginx/www/$repo"
 
 # Remove old site files, move new ones in place
 rm -rf $site
-mv $build $site
+sudo mv $build $site

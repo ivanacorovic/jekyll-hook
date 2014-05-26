@@ -47,7 +47,7 @@ app.post('/hooks/jekyll/:branch', function(req, res) {
         /* repo   */ params.push(data.repo);
         /* branch */ params.push(data.branch);
         /* owner  */ params.push(data.owner);
-        /* giturl */ params.push('git@' + config.gh_server + ':' + data.owner + '/' + data.repo + '.git');
+        /* giturl */ params.push('https://' + config.gh_server + '/' + data.owner + '/' + data.repo + '.git');
         /* source */ params.push(config.temp + '/' + data.owner + '/' + data.repo + '/' + data.branch + '/' + 'code');
         /* build  */ params.push(config.temp + '/' + data.owner + '/' + data.repo + '/' + data.branch + '/' + 'site');
 
