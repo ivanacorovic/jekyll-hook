@@ -1,0 +1,2 @@
+[webservers]
+jekyll ansible_ssh_host={{jekyll_host_ip}}
