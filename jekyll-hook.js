@@ -17,7 +17,7 @@ app.post('/hooks/jekyll/:branch', function(req, res) {
 
     // Close connection
     res.send(202);
-
+<
     // Queue request handler
     tasks.defer(function(req, res, cb) {
         var data = JSON.parse(req.body.payload);
