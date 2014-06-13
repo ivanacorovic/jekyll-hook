@@ -16,7 +16,8 @@ Copy `config.sample.json` to `config.json` in the root directory and customize.
 
 Configuration attributes:
 
-- `gh_server` The GitHub server from which to pull code
+- 'host' - jekyll-hook host IP
+- `gh_server` The GitLabIP:port (10080) server from which to pull code
 - `temp` A directory to store code and site files
 - `scripts`
     - `build` A script to run to build the site
@@ -93,3 +94,8 @@ sudo gem install json --version "1.6.1"
 # Nginx for static content
 sudo apt-get install nginx -y
 ```
+
+
+
+chwon -R deployer:deployer www - da bi projekat mogao da se obrise
+

@@ -17,17 +17,18 @@ app.post('/hooks/jekyll/:branch', function(req, res) {
 
     // Close connection
     res.send(202);
-<
     // Queue request handler
     tasks.defer(function(req, res, cb) {
-        var data = JSON.parse(req.body.payload);
+        console.log(req.body);
+        console.log(req.params);
+        var data = req.body;
         var branch = req.params.branch;
         var params = [];
 
         // Parse webhook data for internal variables
         data.repo = data.repository.name;
         data.branch = data.ref.split('/')[2];
-        data.owner = data.repository.owner.name;
+        data.owner = data.user_name;
 
         // End early if not permitted account
         if (config.accounts.indexOf(data.owner) === -1) {
@@ -47,7 +48,7 @@ app.post('/hooks/jekyll/:branch', function(req, res) {
         /* repo   */ params.push(data.repo);
         /* branch */ params.push(data.branch);
         /* owner  */ params.push(data.owner);
-        /* giturl */ params.push('https://' + config.gh_server + '/' + data.owner + '/' + data.repo + '.git');
+        /* giturl */ params.push('http://' + config.gh_server + '/' + data.owner + '/' + data.repo + '.git');
         /* source */ params.push(config.temp + '/' + data.owner + '/' + data.repo + '/' + data.branch + '/' + 'code');
         /* build  */ params.push(config.temp + '/' + data.owner + '/' + data.repo + '/' + data.branch + '/' + 'site');
 
