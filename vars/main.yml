@@ -1,5 +1,5 @@
 
-jekyll_host_ip:  162.243.74.160
+jekyll_host_ip:  162.243.63.149
 deploy: deployer
 password: secret
 
