@@ -1,0 +1,7 @@
+- hosts: jekyll
+  remote_user: "{{ deploy }}"
+  vars_files:
+    - vars/main.yml
+  # user: intentionally blank
+  roles:
+    - { role: jekyll }

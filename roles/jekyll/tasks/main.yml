@@ -1,0 +1,31 @@
+- name: copy install.sh to install all needed on server
+  copy: src=install.sh dest=/tmp/
+  sudo: yes
+
+- name: make install.sh executable
+  file: path=/tmp/install.sh mode=0777 
+  sudo: yes
+  
+- name: run install.sh
+  command: /tmp/install.sh 
+  sudo: yes
+
+- name: git clone jekyll
+  command: git clone https://github.com/ivanacorovic/jekyll-hook.git
+  
+- name: npm install
+  command: npm install chdir=./jekyll-hook
+  sudo: yes
+
+- name: copy config.json to server
+  template: src=config.json.j2 dest=./jekyll-hook/config.json
+  sudo: yes
+
+- name: change permisions for www
+  file: path=/usr/share/nginx/www owner=deployer group=deployer mode=0777
+  sudo: yes
+  
+- name: start nginx
+  service: name=nginx state=started
+  sudo: yes
+

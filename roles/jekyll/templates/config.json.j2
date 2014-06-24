@@ -1,0 +1,19 @@
+{
+    "listen": {
+      "host": "{{jekyll_host_ip}}",
+      "port": "8080"
+    },
+    "gh_server": "{{gitlab_ip}}:10080",
+    "temp": "/home/deployer/jekyll-hook",
+    "scripts": {
+        "build": "./scripts/build.sh",
+        "publish": "./scripts/publish.sh"
+    },
+    "accounts": [
+        "root", "ivana"
+    ]
+}
+
+
+
+
